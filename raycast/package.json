@@ -1,0 +1,269 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "read-aloud",
+  "title": "Read Aloud",
+  "description": "Reads the selected text out loud with an ElevenLabs voice, in any language your models support, and can lower Spotify while it speaks.",
+  "icon": "icon.png",
+  "author": "eran_knafo",
+  "categories": [
+    "Productivity"
+  ],
+  "license": "MIT",
+  "platforms": [
+    "macOS"
+  ],
+  "commands": [
+    {
+      "name": "read-selection",
+      "title": "Read Selection",
+      "description": "Read the selected text out loud. Run it again to stop.",
+      "mode": "no-view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "apiKey",
+      "title": "ElevenLabs API Key",
+      "description": "Your ElevenLabs API key. It must be allowed to use text to speech and, for choosing a model per language, to read the model list.",
+      "type": "password",
+      "required": true
+    },
+    {
+      "name": "speed",
+      "title": "Speed",
+      "description": "How fast the text is read. Applies from the next reading.",
+      "type": "dropdown",
+      "required": false,
+      "default": "1.5",
+      "data": [
+        {
+          "title": "1×",
+          "value": "1"
+        },
+        {
+          "title": "1.25×",
+          "value": "1.25"
+        },
+        {
+          "title": "1.5×",
+          "value": "1.5"
+        },
+        {
+          "title": "1.75×",
+          "value": "1.75"
+        },
+        {
+          "title": "2×",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "name": "voiceId",
+      "title": "Voice",
+      "description": "The ElevenLabs voice.",
+      "type": "dropdown",
+      "required": false,
+      "default": "JBFqnCBsd6RMkjVDRZzb",
+      "data": [
+        {
+          "title": "George (Warm, British)",
+          "value": "JBFqnCBsd6RMkjVDRZzb"
+        },
+        {
+          "title": "Alice (Confident, British)",
+          "value": "Xb7hH8MSUJpSbSDYk0k2"
+        },
+        {
+          "title": "Aria (Expressive, American)",
+          "value": "9BWtsMINqrJLrRacOk9x"
+        },
+        {
+          "title": "Bill (Trustworthy, American)",
+          "value": "pqHfZKP75CvOlQylNhV4"
+        },
+        {
+          "title": "Brian (Deep, American, Narration)",
+          "value": "nPczCjzI2devNBz1zQrb"
+        },
+        {
+          "title": "Callum (Intense, Transatlantic)",
+          "value": "N2lVS1w4EtoT3dr4eOWO"
+        },
+        {
+          "title": "Charlie (Natural, Australian)",
+          "value": "IKne3meq5aSn9XLyUdCD"
+        },
+        {
+          "title": "Charlotte (Seductive, Swedish)",
+          "value": "XB0fDUnXU5powFXDhCwa"
+        },
+        {
+          "title": "Chris (Casual, American)",
+          "value": "iP95p4xoKVk53GoZ742B"
+        },
+        {
+          "title": "Daniel (Authoritative, British)",
+          "value": "onwK4e9ZLuTAKqWW03F9"
+        },
+        {
+          "title": "Eric (Friendly, American)",
+          "value": "cjVigY5qzO86Huf0OWal"
+        },
+        {
+          "title": "Jessica (Expressive, American)",
+          "value": "cgSgspJ2msm6clMCkdW9"
+        },
+        {
+          "title": "Laura (Upbeat, American)",
+          "value": "FGY2WhTYpPnrIDTdsKH5"
+        },
+        {
+          "title": "Liam (Articulate, American)",
+          "value": "TX3LPaxmHKxFdv7VOQHJ"
+        },
+        {
+          "title": "Lily (Warm, British)",
+          "value": "pFZP5JQG7iQjIQuC4Bku"
+        },
+        {
+          "title": "Matilda (Friendly, American)",
+          "value": "XrExE9yKIg1WjnnlVkGX"
+        },
+        {
+          "title": "River (Confident, American)",
+          "value": "SAz9YHcvj6GT2YYXdXww"
+        },
+        {
+          "title": "Roger (Confident, American)",
+          "value": "CwhRBWXzGAHq8TQ4Fs17"
+        },
+        {
+          "title": "Sarah (Soft, American)",
+          "value": "EXAVITQu4vr4xnSDxMaL"
+        },
+        {
+          "title": "Will (Friendly, American)",
+          "value": "bIHbv24MWmeRgasZH58o"
+        }
+      ]
+    },
+    {
+      "name": "lowerSpotify",
+      "title": "Spotify",
+      "label": "Lower Spotify's volume while reading",
+      "description": "Turns Spotify down while the text is read and back up afterwards.",
+      "type": "checkbox",
+      "required": false,
+      "default": false
+    },
+    {
+      "name": "spotifyVolume",
+      "title": "Spotify Volume While Reading",
+      "description": "How loud Spotify stays while reading, as a share of its current volume. Used only when lowering Spotify is turned on.",
+      "type": "dropdown",
+      "required": false,
+      "default": "25",
+      "data": [
+        {
+          "title": "Muted",
+          "value": "0"
+        },
+        {
+          "title": "10%",
+          "value": "10"
+        },
+        {
+          "title": "20%",
+          "value": "20"
+        },
+        {
+          "title": "25%",
+          "value": "25"
+        },
+        {
+          "title": "30%",
+          "value": "30"
+        },
+        {
+          "title": "40%",
+          "value": "40"
+        },
+        {
+          "title": "50%",
+          "value": "50"
+        },
+        {
+          "title": "60%",
+          "value": "60"
+        },
+        {
+          "title": "70%",
+          "value": "70"
+        },
+        {
+          "title": "80%",
+          "value": "80"
+        },
+        {
+          "title": "90%",
+          "value": "90"
+        },
+        {
+          "title": "100% (leave Spotify alone)",
+          "value": "100"
+        }
+      ]
+    },
+    {
+      "name": "lowerSpotifyElsewhere",
+      "title": "Spotify on Another Device",
+      "label": "Also lower it when Spotify is not playing on this Mac",
+      "description": "Off: the volume is changed only while Spotify is producing sound on this Mac. On: it is changed whenever the Spotify app is open, for example when it is playing on a speaker or phone.",
+      "type": "checkbox",
+      "required": false,
+      "default": false
+    },
+    {
+      "name": "models",
+      "title": "Models, in Order",
+      "description": "ElevenLabs model IDs separated by commas, fastest first. The first one that supports every language in the text is used; if none does, the last one is.",
+      "type": "textfield",
+      "required": false,
+      "default": "eleven_flash_v2_5, eleven_v4_turbo"
+    },
+    {
+      "name": "typesafeApiKey",
+      "title": "TypeSafe API Key",
+      "description": "Optional. Used to ask Jev which model in your list supports the text's languages. Without it the first model is always used.",
+      "type": "password",
+      "required": false
+    },
+    {
+      "name": "cacheSize",
+      "title": "Readings to Keep",
+      "description": "How many recent readings are kept on this Mac, so that reading the same selection again starts at once and costs nothing. 0 turns this off.",
+      "type": "textfield",
+      "required": false,
+      "default": "10"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "2.14.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.9.0",
+    "@types/react": "18.3.12",
+    "typescript": "5.6.3",
+    "@raycast/eslint-config": "2.2.0",
+    "eslint": "^9.22.0",
+    "prettier": "^3.5.3"
+  },
+  "scripts": {
+    "build": "ray build",
+    "dev": "ray develop",
+    "lint": "ray lint",
+    "fix-lint": "ray lint --fix",
+    "publish": "npx @raycast/api@latest publish"
+  }
+}
